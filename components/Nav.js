@@ -10,7 +10,7 @@ export default function Nav() {
             <Link href="/">Home</Link>
             <Link href="/gallery">Gallery</Link>
             <Link href="/favorites">Favorites</Link>
-            <Link href="/favorites">
+            <Link href="https://github.com/marcellpret/my-gallery">
                 <Image src="/github-mark-white.svg" width={42} height={41} />
             </Link>
         </StyledNav>
