@@ -2,12 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 import styled from "styled-components";
-import FavoriteButton from "./FavoriteButton";
+import FavoriteButton from "../FavoriteButton";
 
 export default function Card({ piece, onFavorite, favorites }) {
     return (
         <RelativeDiv>
-            <Link href={`spotlight/${piece.slug}`} key={piece.slug}>
+            <Link href={`gallery/${piece.slug}`} key={piece.slug}>
                 <StyledCard>
                     <div className="text">
                         <h3>{piece.name}</h3>

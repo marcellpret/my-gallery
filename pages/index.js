@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import Spotlight from "../components/Spotlight/Spotlight";
 
 export default function HomePage({ pieces }) {
     const [selectedPiece, setSelectedPiece] = useState({});
@@ -19,19 +20,7 @@ export default function HomePage({ pieces }) {
 
     return (
         <StyledFrameContainer>
-            <div className="frame">
-                <Image
-                    src={
-                        selectedPiece.imageSource ||
-                        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPcvHnbdwAHUgMVjiMF2wAAAABJRU5ErkJggg=="
-                    }
-                    fill
-                    alt={selectedPiece.name}
-                    placeholder="blur"
-                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPcvHnbdwAHUgMVjiMF2wAAAABJRU5ErkJggg=="
-                />
-            </div>
-            <p>{selectedPiece.name}</p>
+            <Spotlight selectedPiece={selectedPiece} />
         </StyledFrameContainer>
     );
 }

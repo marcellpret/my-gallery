@@ -7,11 +7,16 @@ import github from "/public/github-mark-white.svg";
 export default function Nav() {
     return (
         <StyledNav>
-            <Link href="/">Home</Link>
+            <Link href="/">Spotlight</Link>
             <Link href="/gallery">Gallery</Link>
             <Link href="/favorites">Favorites</Link>
             <Link href="https://github.com/marcellpret/my-gallery">
-                <Image src="/github-mark-white.svg" width={42} height={41} />
+                <Image
+                    src="/github-mark-white.svg"
+                    width={42}
+                    height={41}
+                    alt="Github"
+                />
             </Link>
         </StyledNav>
     );

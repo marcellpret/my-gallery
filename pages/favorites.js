@@ -1,4 +1,4 @@
-import Card from "../components/Card";
+import Card from "../components/Card/Card";
 import StyledGrid from "../components/Styled/StyledGrid";
 
 export default function Favorites({ pieces, onFavorite, favorites }) {
