@@ -1,6 +1,9 @@
 import Image from "next/image";
+import styled from "styled-components";
 
-export default function Spotlight({ selectedPiece }) {
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
+
+export default function Spotlight({ selectedPiece, onFavorite, favorites }) {
     return (
         <>
             <div className="frame">
@@ -10,13 +13,27 @@ export default function Spotlight({ selectedPiece }) {
                         "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPcvHnbdwAHUgMVjiMF2wAAAABJRU5ErkJggg=="
                     }
                     fill
-                    alt={selectedPiece.name}
+                    alt={selectedPiece.name || "Waiting for art to load"}
                     placeholder="blur"
                     blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPcvHnbdwAHUgMVjiMF2wAAAABJRU5ErkJggg=="
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                <FavoriteButton
+                    slug={selectedPiece.slug}
+                    favorites={favorites}
+                    onFavorite={onFavorite}
                 />
             </div>
             <p>{selectedPiece.name}</p>
-            <p>{selectedPiece.artist}</p>
+            <StyledArtist className="artist">
+                {selectedPiece.artist}
+            </StyledArtist>
         </>
     );
 }
+
+const StyledArtist = styled.p`
+    font-size: 0.8rem;
+    opacity: 0.5;
+    font-style: italic;
+`;

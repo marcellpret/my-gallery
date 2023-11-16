@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import styled from "styled-components";
-import FavoriteButton from "../FavoriteButton";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 export default function Card({ piece, onFavorite, favorites }) {
     return (
@@ -20,6 +20,8 @@ export default function Card({ piece, onFavorite, favorites }) {
                         alt={piece.name}
                         placeholder="blur"
                         blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPcvHnbdwAHUgMVjiMF2wAAAABJRU5ErkJggg=="
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        quality={75}
                     />
                 </StyledCard>
             </Link>

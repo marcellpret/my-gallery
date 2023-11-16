@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Pallete from "../Pallete";
-import FavoriteButton from "../FavoriteButton";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import Comments from "../Comments";
 import Link from "next/link";
 
@@ -93,7 +93,9 @@ export default function ArtPiecesDetails({
                     <Image
                         src={spotPiece.imageSource}
                         fill
-                        alt={spotPiece.description}
+                        alt={spotPiece.name}
+                        priority
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     ></Image>
                     <FavoriteButton
                         slug={spotPiece.slug}
@@ -104,6 +106,10 @@ export default function ArtPiecesDetails({
                 <p className="genre">
                     <StyledSpan>Genre: </StyledSpan>
                     {spotPiece.genre}
+                </p>
+                <p className="year">
+                    <StyledSpan>Year: </StyledSpan>
+                    {spotPiece.year}
                 </p>
 
                 <Pallete colors={spotPiece.colors} />

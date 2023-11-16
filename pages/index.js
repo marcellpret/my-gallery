@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Spotlight from "../components/Spotlight/Spotlight";
 
-export default function HomePage({ pieces }) {
+export default function HomePage({ pieces, favorites, onFavorite }) {
     const [selectedPiece, setSelectedPiece] = useState({});
 
     useEffect(() => {
@@ -20,7 +20,11 @@ export default function HomePage({ pieces }) {
 
     return (
         <StyledFrameContainer>
-            <Spotlight selectedPiece={selectedPiece} />
+            <Spotlight
+                selectedPiece={selectedPiece}
+                favorites={favorites}
+                onFavorite={onFavorite}
+            />
         </StyledFrameContainer>
     );
 }
