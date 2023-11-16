@@ -2,8 +2,8 @@ import Image from "next/image";
 import styled from "styled-components";
 import Pallete from "../Pallete";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
-import Comments from "../Comments";
-import Link from "next/link";
+import Comments from "../Comments/Comments";
+import { useRouter } from "next/router";
 
 const StyledSection = styled.section`
     display: flex;
@@ -35,7 +35,8 @@ const StyledSection = styled.section`
         }
     }
 
-    a {
+    .back {
+        all: unset;
         color: white;
         margin-top: 1rem;
         transition: opacity 0.2s ease-in-out;
@@ -80,10 +81,13 @@ export default function ArtPiecesDetails({
     onComment,
     comments,
 }) {
+    const router = useRouter();
     return (
         <>
             <StyledSection>
-                <Link href="/gallery">↩ Back to Gallery</Link>
+                <button className="back" onClick={() => router.back()}>
+                    ↩ Back
+                </button>
                 <h1>{spotPiece.name}</h1>
                 <h2>
                     <StyledSpan>Artist: </StyledSpan>

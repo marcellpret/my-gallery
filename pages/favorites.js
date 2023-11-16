@@ -1,4 +1,4 @@
-import Card from "../components/Card/Card";
+import ArtPieces from "../components/ArtPieces/ArtPieces";
 import StyledGrid from "../components/Styled/StyledGrid";
 
 export default function Favorites({ pieces, onFavorite, favorites }) {
@@ -10,14 +10,11 @@ export default function Favorites({ pieces, onFavorite, favorites }) {
         <div>
             <h1>Favorites</h1>
             <StyledGrid>
-                {favoritePieces.map((piece) => (
-                    <Card
-                        piece={piece}
-                        key={piece.slug}
-                        onFavorite={onFavorite}
-                        favorites={favorites}
-                    />
-                ))}
+                <ArtPieces
+                    pieces={favoritePieces}
+                    onFavorite={onFavorite}
+                    favorites={favorites}
+                />
             </StyledGrid>
         </div>
     );

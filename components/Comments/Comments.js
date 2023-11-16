@@ -31,10 +31,10 @@ export default function Comments({ onComment, slug, comments }) {
             {commentsFiltered.length != 0 ? (
                 <StyledCommentsList>
                     {commentsFiltered.map(({ comment, user, slug }) => (
-                        <div key={slug}>
+                        <li key={slug}>
                             <p className="comment">{comment}</p>
                             <p className="by">by {user}</p>
-                        </div>
+                        </li>
                     ))}
                 </StyledCommentsList>
             ) : (
@@ -81,7 +81,7 @@ const StyledCommentsList = styled.div`
     width: 500px;
     max-width: 90vw;
 
-    div {
+    li {
         background-color: whitesmoke;
         border-radius: 5px;
         padding: 1rem 1.3rem;
@@ -91,6 +91,7 @@ const StyledCommentsList = styled.div`
         color: gray;
         box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.25),
             0 0 2px 0 rgba(0, 0, 0, 0.25);
+        list-style: none;
 
         &::before {
             left: 1rem;
@@ -107,7 +108,7 @@ const StyledCommentsList = styled.div`
         }
     }
 
-    div:nth-child(even) {
+    li:nth-child(even) {
         text-align: right;
         justify-content: flex-end;
         align-self: end;

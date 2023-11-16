@@ -1,6 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import ArtPiecesDetails from "./ArtPiecesDetails";
 
+jest.mock("next/router", () => ({
+    useRouter() {
+        return {
+            push: jest.fn(),
+            asPath: "/",
+        };
+    },
+}));
+
 test("displays image, title, artist, year, genre, back link and colors of art piece", () => {
     render(
         <ArtPiecesDetails
@@ -19,6 +28,7 @@ test("displays image, title, artist, year, genre, back link and colors of art pi
             comments={[]}
         />
     );
+
     const image = screen.getByAltText("Silhouette Photo of Trees");
     const artist = screen.getByText("Min An");
     const title = screen.getByRole("heading", {
@@ -27,8 +37,8 @@ test("displays image, title, artist, year, genre, back link and colors of art pi
     });
     const year = screen.getByText("2017");
     const genre = screen.getByText("Nature");
-    const backButton = screen.getByRole("link", {
-        name: "↩ Back to Gallery",
+    const backButton = screen.getByRole("button", {
+        name: "↩ Back",
     });
     const greenColor = screen.getByRole("listitem", {
         name: "Color HEX code: #0f5855",
