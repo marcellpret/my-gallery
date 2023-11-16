@@ -7,15 +7,21 @@ export default function Favorites({ pieces, onFavorite, favorites }) {
     );
 
     return (
-        <div>
-            <h1>Favorites</h1>
-            <StyledGrid>
-                <ArtPieces
-                    pieces={favoritePieces}
-                    onFavorite={onFavorite}
-                    favorites={favorites}
-                />
-            </StyledGrid>
-        </div>
+        <>
+            {favoritePieces.length === 0 ? (
+                <h1>You don't have any favorites yet!</h1>
+            ) : (
+                <div>
+                    <h1>Favorites</h1>
+                    <StyledGrid>
+                        <ArtPieces
+                            pieces={favoritePieces}
+                            onFavorite={onFavorite}
+                            favorites={favorites}
+                        />
+                    </StyledGrid>
+                </div>
+            )}
+        </>
     );
 }
